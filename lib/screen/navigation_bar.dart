@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
 import '../widgets/custom_bottom_nav_bar.dart';
-import 'home/home_screen.dart';
-import 'history/history_screen.dart';
-import 'profile/profile_screen.dart';
+import 'home_screen.dart';
+import 'history_screen.dart';
+import 'profile_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

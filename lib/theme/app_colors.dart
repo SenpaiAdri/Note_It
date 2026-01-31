@@ -5,10 +5,10 @@ class AppColors {
   AppColors._();
 
   // Primary Palette
-  static const Color primary = Color(0xFF3B28CC);
-  static const Color primaryVariant = Color(0xFF2667FF);
-  static const Color secondary = Color(0xFF3F8EFC);
-  static const Color secondaryVariant = Color(0xFFADD7F6);
+  static const Color primary = Color(0xFF9381FF);
+  static const Color primaryVariant = Color(0xFFB8B8FF);
+  static const Color secondary = Color(0xFFF8F7FF);
+  static const Color secondaryVariant = Color(0xFFFFEEDD);
 
   // Dark Mode Palette
   static const Color darkModeBackground = Color(0xFF121212);
@@ -33,12 +33,9 @@ class AppColors {
   static const Color noteRed = Color(0xFFFFEBEE);
 
   // Gradient Colors
-  static const Color gradientStart = Color(
-    0xFF87BFFF,
-  ); // Example: Darker primary
-  static const Color gradientEnd = Color(
-    0xFFADD7F6,
-  ); // Example: Lighter variant
+  static const Color gradientStart = Color(0xFF87BFFF);
+  static const Color gradientEnd = Color(0xFFADD7F6);
+
   static const LinearGradient backgroundGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
