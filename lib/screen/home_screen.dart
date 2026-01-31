@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 // Logo
-                buildLogo(),
+                buildLogo(AppColors.onPrimary, 32),
                 const SizedBox(height: 24),
 
                 // Calendar Row

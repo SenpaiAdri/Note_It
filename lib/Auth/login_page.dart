@@ -3,6 +3,7 @@ import '../theme/app_colors.dart';
 import '../theme/app_theme.dart';
 import '../services/auth_service.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import '../widgets/logo.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -60,7 +61,16 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            AppColors.primary, // Lighter blue top
+            AppColors.secondary, // Primary variant bottom
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
@@ -75,21 +85,14 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    'Note It',
-                    style: AppTheme.textStyle(
-                      size: 32,
-                      weight: FontWeight.w900,
-                      color: AppColors.onPrimary,
-                    ),
-                  ),
+                  buildLogo(AppColors.secondaryVariant, 32),
                   const SizedBox(height: 10),
                   Text(
                     'Your Personal Note Taking App',
                     style: AppTheme.textStyle(
                       size: 16,
-                      weight: FontWeight.w600,
-                      color: AppColors.onPrimary,
+                      weight: FontWeight.w700,
+                      color: AppColors.secondaryVariant,
                     ),
                   ),
                 ],
@@ -97,10 +100,10 @@ class _LoginPageState extends State<LoginPage> {
               // Login Container
               Container(
                 decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF3F8EFC), Color(0xFFADD7F6)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+                  gradient: LinearGradient(
+                    colors: [AppColors.primary, AppColors.secondaryVariant],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
                   ),
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(50),
@@ -109,10 +112,14 @@ class _LoginPageState extends State<LoginPage> {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withValues(alpha: 0.2),
-                      blurRadius: 10,
-                      offset: const Offset(0, 4),
+                      blurRadius: 25,
+                      offset: const Offset(0, -5),
                     ),
                   ],
+                  border: Border.all(
+                    color: AppColors.secondary.withValues(alpha: 0.25),
+                    width: 1,
+                  ),
                 ),
                 padding: const EdgeInsets.symmetric(
                   horizontal: 50,
@@ -125,14 +132,14 @@ class _LoginPageState extends State<LoginPage> {
                       style: AppTheme.textStyle(
                         size: 32,
                         weight: FontWeight.bold,
-                        color: AppColors.onPrimary,
+                        color: AppColors.secondaryVariant,
                       ),
                     ),
                     const SizedBox(height: 100),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
-                        color: Color(0xFFF5F5F5),
+                        color: AppColors.secondaryVariant,
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
@@ -172,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
-                        color: Color(0xFFF5F5F5),
+                        color: AppColors.secondaryVariant,
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
@@ -210,19 +217,33 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 40),
                     TextButton(
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                        shadowColor: Colors.black,
-                        elevation: 5,
-                      ),
+                      style: TextButton.styleFrom(padding: EdgeInsets.zero),
                       onPressed: _isLoading ? null : _handleLogin,
                       child: Container(
                         width: double.infinity,
                         padding: const EdgeInsets.all(14),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: AppColors.primaryVariant,
+                          gradient: LinearGradient(
+                            colors: [
+                              AppColors.primary,
+                              AppColors.primaryVariant,
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
                           borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: AppColors.secondary.withValues(alpha: 0.5),
+                            width: 1,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withValues(alpha: 0.2),
+                              blurRadius: 10,
+                              offset: const Offset(0, 4),
+                            ),
+                          ],
                         ),
                         child: _isLoading
                             ? const SizedBox(
@@ -238,7 +259,7 @@ class _LoginPageState extends State<LoginPage> {
                                 style: AppTheme.textStyle(
                                   size: 16,
                                   weight: FontWeight.bold,
-                                  color: AppColors.onPrimary,
+                                  color: AppColors.secondary,
                                 ),
                               ),
                       ),

@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
-import '../theme/app_colors.dart';
 
-RichText buildLogo() {
+RichText buildLogo(Color color, double size) {
   return RichText(
     text: TextSpan(
-      style: const TextStyle(
+      style: TextStyle(
         fontFamily: AppTheme.fontFamily,
-        fontSize: 32,
+        fontSize: size,
         fontWeight: FontWeight.w900,
       ),
       children: [
-        const TextSpan(
+        TextSpan(
           text: 'Note',
-          style: TextStyle(color: AppColors.primaryVariant),
+          style: TextStyle(color: color),
         ),
         TextSpan(
           text: 'it.',
           style: TextStyle(
             color: Colors.black.withValues(alpha: 0.8),
-            fontSize: 24,
+            fontSize: size / 1.5,
           ),
         ),
       ],

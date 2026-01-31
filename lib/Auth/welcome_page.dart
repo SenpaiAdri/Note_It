@@ -3,6 +3,7 @@ import '../theme/app_theme.dart';
 import '../Auth/signup_page.dart';
 import '../Auth/login_page.dart';
 import '../theme/app_colors.dart';
+import '../widgets/logo.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -10,7 +11,16 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            AppColors.primary, // Lighter blue top
+            AppColors.secondary, // Primary variant bottom
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
@@ -25,21 +35,14 @@ class WelcomePage extends StatelessWidget {
                   margin: const EdgeInsets.only(top: 20),
                   child: Column(
                     children: [
-                      Text(
-                        'Note It.',
-                        style: AppTheme.textStyle(
-                          size: 55,
-                          weight: FontWeight.w900,
-                          color: AppColors.onPrimary,
-                        ),
-                      ),
+                      buildLogo(AppColors.secondary, 55),
                       const SizedBox(height: 10),
                       Text(
                         'Your Personal Note Taking App',
                         style: AppTheme.textStyle(
                           size: 16,
-                          weight: FontWeight.w600,
-                          color: AppColors.onPrimary,
+                          weight: FontWeight.w700,
+                          color: AppColors.secondary,
                         ),
                       ),
                     ],
@@ -69,7 +72,7 @@ class WelcomePage extends StatelessWidget {
                           style: AppTheme.textStyle(
                             size: 16,
                             weight: FontWeight.bold,
-                            color: AppColors.onPrimary,
+                            color: AppColors.secondary,
                           ),
                         ),
                       ),
